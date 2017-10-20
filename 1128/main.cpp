@@ -6,32 +6,29 @@ using namespace std;
 int main()
 {
 
-    string op;
+    string num;
+    char ops[20];
     string in;
-    
-    int count = 0;
-    while(1) {
+    int tailNum = 0, tailOps = 0;
+
+    do {
         cin >> in;
-        if (in[0] == '+' || in[0] == '-') {
-            op += in + " ";
-            count++;
+        if (in[0] == '+' || in[0] =='-') {
+            ops[tailOps] = in[0];
+            tailOps++;
         } else {
-            break;
+            num += in + ' ';
+            tailNum++;
         }
-    }
+    } while (tailNum != tailOps + 1);
 
-    int a[count];
+    cout << num;
+
     int i;
-    for (i = 0; i < count; i++) {
-        cin >> a[i];
+    for (i = 0; i < tailOps; i++) {
+        cout << ops[i] << ' ';
     }
-
-    cout << in << ' ';
-    for (i = 0; i < count; i++) {
-        cout << a[i] << ' ';
-    }
-    cout << op << endl;
-
+    cout << endl;
     return 0;
 }
 
