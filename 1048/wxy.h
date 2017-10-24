@@ -5,57 +5,24 @@
 
 using namespace std;
 
-void BubbleSort(int *a[], int n);
+void BubbleSort(int *a, int n);
 void BucketSort(int *a, int n, int max);
 void InputLinearArray(int *a);
 void OutputLinearArray(int *a);
 
-int main()
-{
-
-    int n;
-    int m;
-    cin >> n >> m;
-    m *= 1.5;
-    int score_top[2][n];
-
-    int i;
-
-    for (i = 0; i < n; i++) {
-        cin >> score_top[0][i]
-            >> score_top[1][i];
-    }
-
-    BubbleSort(score_top, n);
-
-    int pass;
-    pass = score_top[0][m];
-
-    cout << pass << m;
-
-    for (i = 0; i < m; i++) {
-        cout << score_top[0][m] << score_top[1][m] << endl;
-    }
-
-    return 0;
-}
-
-void BubbleSort(int *a[], int n)
+void BubbleSort(int *a, int n)
 {
 
     int i, j;
-    int b, c;
+    int b;
     bool change = false;
 
     for (i = 1; i < n; i++) {
         for (j = 1; j < n; j++) {
             if (a[j] < a[j -1]) {
-                b = a[0][j];
-                c = a[1][j];
-                a[0][j] = a[0][j - 1];
-                a[1][j] = a[1][j - 1];
-                a[0][j - 1] = b;
-                a[1][j - 1] = c;
+                b = a[j];
+                a[j] = a[j - 1];
+                a[j - 1] = b;
                 change = true;
             }
         }
